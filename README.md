@@ -1,25 +1,25 @@
 
-# BMI Calculator
+# Random Password Generator
 
 ## About the Project
-This project is a simple BMI (Body Mass Index) Calculator developed using Python.
+This project is a Random Password Generator developed using Python.
 
-It calculates a person's BMI based on their weight and height and displays the corresponding BMI category.
+It generates strong and random passwords based on the length entered by the user.
 
 ## Features
-- Accepts weight in kilograms.
-- Accepts height in metres.
-- Calculates BMI automatically.
-- Displays BMI category.
+- Generates random passwords.
+- Includes uppercase letters.
+- Includes lowercase letters.
+- Includes numbers.
+- Includes special characters.
+- Minimum password length of 8 characters.
 - Handles invalid inputs.
-- Prevents zero and negative values.
 
 ## Technology Used
 - Python 3
-- Visual Studio Code
-
-## BMI Formula
-BMI = Weight (kg) / Height (m)²
+- VS Code
+- String Module
+- Secrets Module
 
 ## How to Run
 1. Install Python 3.

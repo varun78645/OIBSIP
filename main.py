@@ -1,35 +1,46 @@
 
-print("================================")
-print("       BMI CALCULATOR")
-print("================================")
+import string
+import secrets
+
+print("==============================")
+print("   RANDOM PASSWORD GENERATOR")
+print("==============================")
 
 try:
-    # Take input from user
-    weight = float(input("Enter your weight in kg: "))
-    height = float(input("Enter your height in metres: "))
+    length = int(input("Enter password length (minimum 8): "))
 
-    # Validate input
-    if weight <= 0 or height <= 0:
-        print("Error: Weight and height must be positive numbers.")
+    if length < 8:
+        print("Error: Password must be at least 8 characters long.")
 
     else:
-        # Calculate BMI
-        bmi = weight / (height ** 2)
+        # Create character groups
+        lowercase = string.ascii_lowercase
+        uppercase = string.ascii_uppercase
+        numbers = string.digits
+        special = string.punctuation
 
-        print("\n========== RESULT ==========")
-        print("Your BMI is:", round(bmi, 2))
+        # Ensure at least one character from each group
+        password = [
+            secrets.choice(lowercase),
+            secrets.choice(uppercase),
+            secrets.choice(numbers),
+            secrets.choice(special)
+        ]
 
-        # Check BMI category
-        if bmi < 18.5:
-            print("Category: Underweight")
-        elif bmi < 25:
-            print("Category: Normal weight")
-        elif bmi < 30:
-            print("Category: Overweight")
-        else:
-            print("Category: Obese")
+        # Add remaining random characters
+        all_characters = lowercase + uppercase + numbers + special
 
-        print("============================")
+        for i in range(length - 4):
+            password.append(secrets.choice(all_characters))
+
+        # Shuffle the password
+        secrets.SystemRandom().shuffle(password)
+
+        # Display password
+        final_password = "".join(password)
+
+        print("\nYour generated password is:")
+        print(final_password)
 
 except ValueError:
-    print("Error: Please enter valid numbers only.")
+    print("Error: Please enter a valid number.")
